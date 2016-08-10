@@ -1,0 +1,63 @@
+" This file will be loaded at the end of .vimrc.
+" This file is designed to add your own vim scripts or override the exVim's .vimrc settings.
+" Myself keyword map
+imap <C-L> <Right>
+vnoremap <leader>y "+y
+nmap <leader>Q :qall!<CR>
+nmap <leader>W :w!<CR>
+nmap <leader>q :q!<CR>
+imap <C-U> <ESC>vbUA
+imap <C-K> <ESC>vbuA
+imap { {}<ESC>i<CR><ESC>O
+
+" <F5>complier and run C and C++ programme
+map <F5> :call CompileCode()<CR>
+map <F6> :call CompileCode()<CR>
+imap <F5> <ESC>:call CompileCode<CR>
+vmap <F5> <ESC>:call CompileCode<CR>
+ func! CompileCode()
+     exec "w"
+     if &filetype == "cpp"
+         exec "call CompileRunGpp()"
+     elseif &filetype == "c"
+         exec "call CompileRunGcc()"
+     elseif &filetype == "python"
+         exec "call CompileRunPY()"
+     elseif &filetype == "sh"
+         exec "call CompileRunSH()"
+     endif
+ endfunc
+
+ func! CompileRunGcc()
+     exec "w"
+     exec "!gcc % -o %<"
+     exec "! ./%<"
+ endfunc
+
+ func! CompileRunGpp()
+     exec "w"
+     exec "!g++ % -o %<"
+     exec "! ./%<"
+ endfunc
+
+" <F6> complier and run python programme
+ fun! CompileRunPY()
+     exec "w"
+     exec "!python %"
+ endfunc
+
+" <F6> complier and run shell programme
+ func! CompileRunSH()
+     exec "w"
+     exec "!chmod a+x %"
+     exec "! ./%"
+ endfunc
+
+
+" <F9> gdb
+map <F9> :call Debug()<CR>
+ func! Debug()
+     exec "w"
+     exec "!gcc % -o %< -gstabs+"
+     exec "!gdb %<"
+ endfunc

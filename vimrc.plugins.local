@@ -1,0 +1,48 @@
+" This file will be loaded after .vimrc.plugins, 
+" but before 'filetype plugin on', 'filetype indent on' and 'syntax on' been executed. 
+" This file is designed to be safe to add your own plugins and plugins' configuration.
+
+" Add your customized plugins:
+" Example: Plugin 'foo/bar/foobar'
+" ---------------------------------------------------
+Plugin 'Raimondi/delimitMate'
+
+" delimitMate
+" ---------------------------------------------------
+Plugin 'drmingdrmer/xptemplate'
+" code complete for other
+" ---------------------------------------------------
+Plugin 'wesleyche/SrcExpl'
+
+ nmap <leader>sr :SrcExplToggle<CR>
+" look code
+" ---------------------------------------------------
+Plugin 'kshenoy/vim-signature'
+let g:SignatureMap = {
+        \ 'Leader'             :  "m",
+        \ 'PlaceNextMark'      :  "m,",
+        \ 'ToggleMarkAtLine'   :  "m.",
+        \ 'PurgeMarksAtLine'   :  "m-",
+        \ 'DeleteMark'         :  "dm",
+        \ 'PurgeMarks'         :  "mda",
+        \ 'PurgeMarkers'       :  "m<BS>",
+        \ 'GotoNextLineAlpha'  :  "']",
+        \ 'GotoPrevLineAlpha'  :  "'[",
+        \ 'GotoNextSpotAlpha'  :  "`]",
+        \ 'GotoPrevSpotAlpha'  :  "`[",
+        \ 'GotoNextLineByPos'  :  "]'",
+        \ 'GotoPrevLineByPos'  :  "['",
+        \ 'GotoNextSpotByPos'  :  "mn",
+        \ 'GotoPrevSpotByPos'  :  "mp",
+        \ 'GotoNextMarker'     :  "[+",
+        \ 'GotoPrevMarker'     :  "[-",
+        \ 'GotoNextMarkerAny'  :  "]=",
+        \ 'GotoPrevMarkerAny'  :  "[=",
+        \ 'ListLocalMarks'    :  "m?"
+        \ }
+" ---------------------------------------------------
+Plugin 'vim-scripts/BOOKMARKS--Mark-and-Highlight-Full-Lines'
+  nmap <leader>mo <F1>
+  nmap <leader>mf <F2>
+  nmap <leader>ma <F5>
+" ---------------------------------------------------
