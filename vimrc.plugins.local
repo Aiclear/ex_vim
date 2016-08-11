@@ -1,21 +1,21 @@
-" This file will be loaded after .vimrc.plugins, 
+" This file will be loaded after .vimrc.plugins,
 " but before 'filetype plugin on', 'filetype indent on' and 'syntax on' been executed. 
 " This file is designed to be safe to add your own plugins and plugins' configuration.
 
 " Add your customized plugins:
 " Example: Plugin 'foo/bar/foobar'
 " ---------------------------------------------------
-Plugin 'Raimondi/delimitMate'
+" Plugin 'Raimondi/delimitMate'
 
-" delimitMate
+" complete the special symbols
 " ---------------------------------------------------
 Plugin 'drmingdrmer/xptemplate'
 " code complete for other
 " ---------------------------------------------------
 Plugin 'wesleyche/SrcExpl'
 
- nmap <leader>sr :SrcExplToggle<CR>
-" look code
+nnoremap <leader>sr :SrcExplToggle<CR>
+" Better browsing code and jump to function define place
 " ---------------------------------------------------
 Plugin 'kshenoy/vim-signature'
 let g:SignatureMap = {
@@ -42,7 +42,43 @@ let g:SignatureMap = {
         \ }
 " ---------------------------------------------------
 Plugin 'vim-scripts/BOOKMARKS--Mark-and-Highlight-Full-Lines'
-  nmap <leader>mo <F1>
-  nmap <leader>mf <F2>
-  nmap <leader>ma <F5>
+  nmap <leader>mo <F1>  " Open highlight bookmarks"
+  nmap <leader>mf <F2>  " Close highlight bookmarks"
+  nmap <leader>ma <F5>  " Set bookmarks and highlight"
+" ---------------------------------------------------
+Plugin 'a.vim'
+
+" switch c/c++ head file and source file
+" :A    ---Switch file and keep all the window
+" :AS   ---Switch ... split
+" :AV   ---Switch ... vsplir
+" ---------------------------------------------------
+Plugin 'jiangmiao/auto-pairs'
+
+" complete the special symbols
+" ---------------------------------------------------
+Plugin 'dracula/vim'
+
+" colorscheme
+" ---------------------------------------------------
+Plugin 'std_c.zip'
+
+let c_cpp_cmments = 0
+" stronger C language programer
+" ---------------------------------------------------
+Plugin 'bufexplorer.zip'
+
+" browsing buffer
+" ---------------------------------------------------
+Plugin 'Mark--Karkat'
+
+" Highlight different word
+" ---------------------------------------------------
+Plugin 'omniCppComplete'
+
+set completeopt=menu       " close previous window"
+" ---------------------------------------------------
+Plugin 'cSyntaxAfter'
+
+au! BufRead,BufNewFile,BufEnter *.{c,cpp,h} call CSyntaxAfter()
 " ---------------------------------------------------

@@ -302,8 +302,7 @@ Plugin 'scrooloose/nerdtree'
 let g:NERDTreeWinSize = 30
 let g:NERDTreeMouseMode = 1
 let g:NERDTreeMapToggleZoom = '<Space>'
-map <Leader>to :NERDTreeToggle<CR>
-map <Leader>xx :NERDTreeClose<CR>
+nnoremap <Leader>to :NERDTreeToggle<CR>
 
 " nerdcommenter: invoke by <leader>c<space>, <leader>cl, <leader>cu, <F11> or <C-F11>
 " ---------------------------------------------------

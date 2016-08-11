@@ -121,9 +121,12 @@ else
     set t_Co=256 " make sure our terminal use 256 color
     let g:solarized_termcolors = 256
 endif
+
 colorscheme solarized
 " colorscheme exlightgray
 " colorscheme gruvbox
+" colorscheme dracula
+" colorscheme Tomorrow-Night
 
 "/////////////////////////////////////////////////////////////////////////////
 " General
@@ -244,7 +247,7 @@ set laststatus=2 " always have status-line
 set titlestring=%t\ (%{expand(\"%:p:.:h\")}/)
 set cursorline
 set cursorcolumn
-hi CursorLine guibg=Grey40 guifg=red term=BOLD
+hi CursorLine term=BOLD
 
 " set window size (if it's GUI)
 if has('gui_running')
@@ -452,7 +455,7 @@ nnoremap <silent> <leader>y3 :let @*=fnamemodify(bufname('%'),":p")<CR>
 
 " F8 or <leader>/:  Set Search pattern highlight on/off
 nnoremap <F8> :let @/=""<CR>
-nnoremap <leader>/ :let @/=""<CR>
+nnoremap <silent><leader>/ :let @/=""<CR>
 " DISABLE: though nohlsearch is standard way in Vim, but it will not erase the
 "          search pattern, which is not so good when use it with exVim's <leader>r
 "          filter method

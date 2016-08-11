@@ -1,20 +1,21 @@
 " This file will be loaded at the end of .vimrc.
 " This file is designed to add your own vim scripts or override the exVim's .vimrc settings.
 " Myself keyword map
-imap <C-L> <Right>
-vnoremap <leader>y "+y
-nmap <leader>Q :qall!<CR>
-nmap <leader>W :w!<CR>
-nmap <leader>q :q!<CR>
-imap <C-U> <ESC>vbUA
-imap <C-K> <ESC>vbuA
-imap { {}<ESC>i<CR><ESC>O
-
+inoremap <C-L> <Right>
+inoremap <C-U> <ESC>vbUea
+inoremap <C-K> <ESC>vbuea
+nnoremap <leader>ev :vs /root/.vimrc.local<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
+nnoremap cS :%s/\s\+$//g<CR>:noh<CR>
+"=========================================================
+" < auto cmd set >
+"=========================================================
+"Function and map
 " <F5>complier and run C and C++ programme
-map <F5> :call CompileCode()<CR>
-map <F6> :call CompileCode()<CR>
-imap <F5> <ESC>:call CompileCode<CR>
-vmap <F5> <ESC>:call CompileCode<CR>
+nnoremap <F5> :call CompileCode()<CR>
+nnoremap <F6> :call CompileCode()<CR>
+inoremap <F5> <ESC>:call CompileCode<CR>
+vnoremap <F5> <ESC>:call CompileCode<CR>
  func! CompileCode()
      exec "w"
      if &filetype == "cpp"
@@ -53,9 +54,8 @@ vmap <F5> <ESC>:call CompileCode<CR>
      exec "! ./%"
  endfunc
 
-
 " <F9> gdb
-map <F9> :call Debug()<CR>
+noremap <F9> :call Debug()<CR>
  func! Debug()
      exec "w"
      exec "!gcc % -o %< -gstabs+"
