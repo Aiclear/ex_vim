@@ -17,34 +17,34 @@ Plugin 'wesleyche/SrcExpl'
 nnoremap <leader>sr :SrcExplToggle<CR>
 " Better browsing code and jump to function define place
 " ---------------------------------------------------
-Plugin 'kshenoy/vim-signature'
-let g:SignatureMap = {
-        \ 'Leader'             :  "m",
-        \ 'PlaceNextMark'      :  "m,",
-        \ 'ToggleMarkAtLine'   :  "m.",
-        \ 'PurgeMarksAtLine'   :  "m-",
-        \ 'DeleteMark'         :  "dm",
-        \ 'PurgeMarks'         :  "mda",
-        \ 'PurgeMarkers'       :  "m<BS>",
-        \ 'GotoNextLineAlpha'  :  "']",
-        \ 'GotoPrevLineAlpha'  :  "'[",
-        \ 'GotoNextSpotAlpha'  :  "`]",
-        \ 'GotoPrevSpotAlpha'  :  "`[",
-        \ 'GotoNextLineByPos'  :  "]'",
-        \ 'GotoPrevLineByPos'  :  "['",
-        \ 'GotoNextSpotByPos'  :  "mn",
-        \ 'GotoPrevSpotByPos'  :  "mp",
-        \ 'GotoNextMarker'     :  "[+",
-        \ 'GotoPrevMarker'     :  "[-",
-        \ 'GotoNextMarkerAny'  :  "]=",
-        \ 'GotoPrevMarkerAny'  :  "[=",
-        \ 'ListLocalMarks'    :  "m?"
-        \ }
+" Plugin 'kshenoy/vim-signature'
+" let g:SignatureMap = {
+        " \ 'Leader'             :  "m",
+        " \ 'PlaceNextMark'      :  "m,",
+        " \ 'ToggleMarkAtLine'   :  "m.",
+        " \ 'PurgeMarksAtLine'   :  "m-",
+        " \ 'DeleteMark'         :  "dm",
+        " \ 'PurgeMarks'         :  "mda",
+        " \ 'PurgeMarkers'       :  "m<BS>",
+        " \ 'GotoNextLineAlpha'  :  "']",
+        " \ 'GotoPrevLineAlpha'  :  "'[",
+        " \ 'GotoNextSpotAlpha'  :  "`]",
+        " \ 'GotoPrevSpotAlpha'  :  "`[",
+        " \ 'GotoNextLineByPos'  :  "]'",
+        " \ 'GotoPrevLineByPos'  :  "['",
+        " \ 'GotoNextSpotByPos'  :  "mn",
+        " \ 'GotoPrevSpotByPos'  :  "mp",
+        " \ 'GotoNextMarker'     :  "[+",
+        " \ 'GotoPrevMarker'     :  "[-",
+        " \ 'GotoNextMarkerAny'  :  "]=",
+        " \ 'GotoPrevMarkerAny'  :  "[=",
+        " \ 'ListLocalMarks'    :  "m?"
+        " \ }
 " ---------------------------------------------------
-Plugin 'vim-scripts/BOOKMARKS--Mark-and-Highlight-Full-Lines'
-  nmap <leader>mo <F1>  " Open highlight bookmarks"
-  nmap <leader>mf <F2>  " Close highlight bookmarks"
-  nmap <leader>ma <F5>  " Set bookmarks and highlight"
+" Plugin 'vim-scripts/BOOKMARKS--Mark-and-Highlight-Full-Lines'
+  " nmap <leader>mo <F1>  " Open highlight bookmarks"
+  " nmap <leader>mf <F2>  " Close highlight bookmarks"
+  " nmap <leader>ma <F5>  " Set bookmarks and highlight"
 " ---------------------------------------------------
 Plugin 'a.vim'
 
@@ -64,7 +64,7 @@ Plugin 'dracula/vim'
 Plugin 'std_c.zip'
 
 let c_cpp_cmments = 0
-" stronger C language programer
+" stronger C language programer highlight
 " ---------------------------------------------------
 Plugin 'bufexplorer.zip'
 
@@ -81,4 +81,10 @@ set completeopt=menu       " close previous window"
 Plugin 'cSyntaxAfter'
 
 au! BufRead,BufNewFile,BufEnter *.{c,cpp,h} call CSyntaxAfter()
+" ---------------------------------------------------
+" Plugin 'ccvext.vim'
+
+" special file auto general tags and link
+" <leader>sy auto link
+" <leader>sc link had exist tags file
 " ---------------------------------------------------
