@@ -14,6 +14,8 @@ inoremap <C-K> <ESC>mzguiw`za
 nnoremap <leader>ev :vs /root/.vimrc.local<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 nnoremap cS :%s/\s\+$//g<CR>:noh<CR>
+inoremap <C-S> <ESC>:w<CR>i
+nnoremap <C-S> :w<CR>
 "=========================================================
 " < auto cmd set >
 "=========================================================
