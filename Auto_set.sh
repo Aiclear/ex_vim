@@ -1,18 +1,26 @@
 #!/bin/bash
 
-ln -s ./.vimrc                ~/.vimrc
-ln -s ./.vimrc.local          ~/.vimrc.local
-ln -s ./.vimrc.plugins        ~/.vimrc.plugins
-ln -s ./.vimrc.plugins.local  ~/.vimrc.plugins.local
+if [ -L ~/.vimrc.local ] || [ -f ~/.vimrc.local ]; then
+    rm -rf ~/.vimrc
+    rm -rf ~/.vimrc.local
+    rm -rf ~/.vimrc.plugins
+    rm -rf ~/.vimrc.plugins.local
 
-mkid
-if [ $? != 0 ]; then
+    cp ./vimrc                ~/.vimrc
+    cp ./vimrc.local          ~/.vimrc.local
+    cp ./vimrc.plugins        ~/.vimrc.plugins
+    cp ./vimrc.plugins.local  ~/.vimrc.plugins.local
+fi
+
+if which mkid > /dev/null 2>&1; then
+    echo "mkid command is existed."
+else
     cd /tmp
-    wget http://jaist.dl.sourceforge.net/project/gnuwin32/id-utils/4.0-2/id-utils-4.0-2-src.zip
-    gunzip id-utils-4.0-2-src.zip
-    cd id-utils-4.0-2-src
+    wget http://ftp.gnu.org/gnu/idutils/idutils-4.6.tar.xz
+    tar -xf idutils-4.6.tar.xz
+    cd idutils-4.6
     ./configure
     make && make install
     cd ..
-    rm -rf id-utils-4.0-2-src*
+    rm -rf idutils-4.6*
 fi
