@@ -15,6 +15,7 @@ ln -s /root/vimrc/exvim/vimrc.local           /root/.vimrc.local
 ln -s /root/vimrc/exvim/vimrc.plugins         /root/.vimrc.plugins
 ln -s /root/vimrc/exvim/vimrc.plugins.local   /root/.vimrc.plugins.local
 
+#安装mkid命令
 if which mkid 2>&1 /dev/null; then
     echo "mkid command is existed."
 else
