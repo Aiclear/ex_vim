@@ -8,7 +8,6 @@ inoremap <c-k> <Up>
 inoremap <c-j> <Down>
 inoremap <c-h> <Left>
 inoremap <c-l> <Right>
-
 inoremap <C-U> <ESC>mzgUiw`za
 inoremap <C-K> <ESC>mzguiw`za
 nnoremap <leader>ev :vs /root/.vimrc.local<CR>
@@ -28,4 +27,3 @@ nnoremap <C-S> :w<CR>
 "---------------------------------------------------------
 abbreviate lsit list
 "=========================================================
-
