@@ -8,16 +8,16 @@ setVim() {
     cd $HOME
     rm -rf .vimrc.*
 
-    ln -s $HOME/vimrc/exvim/vimrc                 $HOME/.vimrc
-    ln -s $HOME/vimrc/exvim/vimrc.local           $HOME/.vimrc.local
-    ln -s $HOME/vimrc/exvim/vimrc.plugins         $HOME/.vimrc.plugins
-    ln -s $HOME/vimrc/exvim/vimrc.plugins.local   $HOME/.vimrc.plugins.local
+    ln -s $HOME/vimrc/ex_vim/vimrc                 $HOME/.vimrc
+    ln -s $HOME/vimrc/ex_vim/vimrc.local           $HOME/.vimrc.local
+    ln -s $HOME/vimrc/ex_vim/vimrc.plugins         $HOME/.vimrc.plugins
+    ln -s $HOME/vimrc/ex_vim/vimrc.plugins.local   $HOME/.vimrc.plugins.local
 }
 
 read -p "Do you want to install a new vim[y|n]" answ
 if [ x"$answ" = x"y"]; then
     cd /tmp
-    git clone https://github.com/exvim/main
+    git clone https://github.com/ex_vim/main
     cd /main
     sh unix/install.sh
     sh unix/replace.sh
@@ -28,8 +28,11 @@ else
 fi
 
 
+which mkid
+mkid_file=`ls /tmp | grep 'idutils-*'`
+
 #安装mkid命令
-if which mkid 2>&1 /dev/null; then
+if [ $? -eq 0 ] && [ -n $mkid_file ]; then
     echo "mkid command is existed."
 else
     cd /tmp
