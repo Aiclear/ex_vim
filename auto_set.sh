@@ -1,7 +1,6 @@
 #!/bin/bash
 
 set -e
-set -x
 
 #配置为我自己的.vimrc文件
 setVim() {
@@ -15,10 +14,17 @@ setVim() {
 }
 
 read -p "Do you want to install a new vim[y|n]" answ
-if [ x"$answ" = x"y"]; then
+if [ x"$answ" = x"y" ]; then
+    cd $HOME
+    rm -rf .vimrc
+    rm -rf .vimrc.*
     cd /tmp
-    git clone https://github.com/ex_vim/main
-    cd /main
+
+    if [ ! -d "/tmp/main" -o "`ls /tmp/main/`" == "" ]; then
+        git clone https://github.com/exvim/main
+    fi
+    
+    cd /tmp/main
     sh unix/install.sh
     sh unix/replace.sh
 
