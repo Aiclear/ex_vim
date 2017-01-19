@@ -5,7 +5,7 @@ set -e
 #配置为我自己的.vimrc文件
 setVim() {
     cd $HOME
-    rm -rf .vimrc.*
+    rm -rf .vimrc*
 
     ln -s $HOME/vimrc/ex_vim/vimrc                 $HOME/.vimrc
     ln -s $HOME/vimrc/ex_vim/vimrc.local           $HOME/.vimrc.local

@@ -66,11 +66,11 @@ Plugin 'std_c.zip'
 let c_cpp_cmments = 0
 " stronger C language programer highlight
 " ---------------------------------------------------
-Plugin 'bufexplorer.zip'
+" Plugin 'bufexplorer.zip'
 
 " browsing buffer
 " ---------------------------------------------------
-Plugin 'Mark--Karkat'
+" Plugin 'Mark--Karkat'
 
 " Highlight different word
 " ---------------------------------------------------
