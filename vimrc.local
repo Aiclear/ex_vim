@@ -18,8 +18,7 @@ nnoremap <C-S> :w<CR>
 "=========================================================
 " < auto cmd set >
 "=========================================================
-" au! ex_gui_font " remove exvim old font
-" set guifont=mononoki\ Regular\ 13 " seting new font
+" set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 12 " seting new font
 "=========================================================
 " < Function >
 "=========================================================
