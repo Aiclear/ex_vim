@@ -17,12 +17,16 @@ inoremap <C-S> <ESC>:w<CR>i
 nnoremap <C-S> :w<CR>
 "=========================================================
 " < auto cmd set >
-"=========================================================
-" set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 12 " seting new font
+
+" au! ex_gui_font " remove exvim old font
+" set guifont=mononoki\ Regular\ 13 " seting new font
 "=========================================================
 " < Function >
 "=========================================================
 " < Abbreviate >
-"---------------------------------------------------------
+
 abbreviate lsit list
+"=========================================================
+" Myself Set About My vimrc
+set guicursor+=a:blinkon0
 "=========================================================

@@ -116,8 +116,10 @@ syntax on " required
 
 if has('gui_running')
     set background=dark
+    " set background=light
 else
     set background=dark
+    " set background=light
     set t_Co=256 " make sure our terminal use 256 color
     let g:solarized_termcolors = 256
 endif
@@ -127,6 +129,8 @@ colorscheme solarized
 " colorscheme gruvbox
 " colorscheme dracula
 " colorscheme Tomorrow-Night
+" colorscheme twilight
+" colorscheme hybrid
 
 "/////////////////////////////////////////////////////////////////////////////
 " General
@@ -200,7 +204,7 @@ if has('gui_running')
 
     " set guifont
     function! s:set_gui_font()
-        if has('gui_gtk3') " Now I am using linux is no GTK2, so I modified.
+        if has('gui_gtk2')
             if getfontname( 'DejaVu Sans Mono for Powerline' ) != ''
                 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 12
             elseif getfontname( 'DejaVu Sans Mono' ) != ''
@@ -220,6 +224,8 @@ if has('gui_running')
         elseif WINDOWS()
             if getfontname( 'DejaVu Sans Mono for Powerline' ) != ''
                 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h11:cANSI
+                " set guifont=Hack\ Regular:h11:cANSI
+                " set guifont=Inconsolata\ for\ Powerline:h14:cANSI
             elseif getfontname( 'DejaVu Sans Mono' ) != ''
                 set guifont=DejaVu\ Sans\ Mono:h11:cANSI
             elseif getfontname( 'Consolas' ) != ''
@@ -246,7 +252,7 @@ set display+=lastline " for easy browse last line with wrap text
 set laststatus=2 " always have status-line
 set titlestring=%t\ (%{expand(\"%:p:.:h\")}/)
 set cursorline
-set cursorcolumn
+" set cursorcolumn " show cursor column
 hi CursorLine term=BOLD
 
 " set window size (if it's GUI)
