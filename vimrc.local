@@ -15,6 +15,9 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 nnoremap cS :%s/\s\+$//g<CR>:noh<CR>
 inoremap <C-S> <ESC>:w<CR>i
 nnoremap <C-S> :w<CR>
+
+nnoremap <leader>y "+y
+nnoremap <leader>p "+p
 "=========================================================
 " < auto cmd set >
 
