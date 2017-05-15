@@ -12,7 +12,7 @@ inoremap <C-U> <ESC>mzgUiw`za
 inoremap <C-K> <ESC>mzguiw`za
 nnoremap <leader>ev :vs /root/.vimrc.local<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
-nnoremap cS :%s/\s\+$//g<CR>:noh<CR>
+nnoremap cS :%s/\ *$//g<CR>:noh<CR>
 inoremap <C-S> <ESC>:w<CR>i
 nnoremap <C-S> :w<CR>
 
@@ -20,7 +20,7 @@ nnoremap <leader>y "+y
 nnoremap <leader>p "+p
 
 " open a terminal win
-nnoremap <silent> <leader>tt :!start cmder<CR>
+nnoremap <silent><leader>tt :!start cmder<CR>
 "=========================================================
 " < auto cmd set >
 
