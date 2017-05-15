@@ -64,7 +64,8 @@ if WINDOWS()
         " fallback into cp1252 instead of eg. iso-8859-15.
         " Newer Windows files might contain utf-8 or utf-16 LE so we might
         " want to try them first.
-        set fileencodings=ucs-bom,utf-8,utf-16le,cp1252,iso-8859-15
+        " set fileencodings=ucs-bom,utf-8,utf-16le,cp1252,iso-8859-15
+        set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
     endif
 
 else
@@ -207,7 +208,7 @@ if has('gui_running')
     function! s:set_gui_font()
         if has('gui_gtk2')
             if getfontname( 'DejaVu Sans Mono for Powerline' ) != ''
-                set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 13
+                set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 12
             elseif getfontname( 'DejaVu Sans Mono' ) != ''
                 set guifont=DejaVu\ Sans\ Mono\ 12
             else
@@ -223,14 +224,15 @@ if has('gui_running')
                 set guifont=DejaVu\ Sans\ Mono:h15
             endif
         elseif WINDOWS()
-            if getfontname( 'DejaVu Sans Mono for Powerline' ) != ''
-                set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h11:cANSI
+            if getfontname( 'Powerline_Consolas' ) != ''
+                set guifont=Powerline_Consolas:h13:cANSI
+                set guifontwide=YaHei_Consolas_Hybrid:h13
+            elseif getfontname( 'DejaVu Sans Mono for Powerline' ) != ''
+                set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h12:cANSI
                 " set guifont=Hack\ Regular:h11:cANSI
                 " set guifont=Inconsolata\ for\ Powerline:h14:cANSI
             elseif getfontname( 'DejaVu Sans Mono' ) != ''
                 set guifont=DejaVu\ Sans\ Mono:h11:cANSI
-            elseif getfontname( 'Consolas' ) != ''
-                set guifont=Consolas:h11:cANSI " this is the default visual studio font
             else
                 set guifont=Lucida_Console:h11:cANSI
             endif
