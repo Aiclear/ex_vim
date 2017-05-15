@@ -23,7 +23,7 @@ if [ x"$answ" = x"y" ]; then
     if [ ! -d "/tmp/main" -o "`ls /tmp/main/`" == "" ]; then
         git clone https://github.com/exvim/main
     fi
-    
+
     cd /tmp/main
     sh unix/install.sh
     sh unix/replace.sh
@@ -33,15 +33,25 @@ else
     setVim
 fi
 
-
-which mkid
-mkid_file=`ls /tmp | grep 'idutils-*'`
+# The "mkid" command checked
+which mkid 1> /dev/null 2>&1
 
 #安装mkid命令
-if [ $? -eq 0 ] && [ -n $mkid_file ]; then
+if [ $? -eq 0 ]; then
     echo "mkid command is existed."
 else
-    cd /tmp
-    wget http://ftp.gnu.org/gnu/idutils/idutils-4.6.tar.xz
-    tar -xf idutils-4.6.tar.xz
+    mkid_file=`ls /tmp | grep 'idutils-*'`
+    if [ ! -f $mkid_file ]; then
+        cd /tmp
+        wget http://ftp.gnu.org/gnu/idutils/idutils-4.6.tar.xz
+        tar -xf idutils-4.6.tar.xz
+    fi
+
+
+    # install mkid command
+    cd idutils-4.6
+    sed -i "1030s#^\(_GL_WARN_ON_USE\)#//\1#g" lib/stdio.h
+
+    ./config && make && make install
 fi
+
