@@ -18,6 +18,9 @@ nnoremap <C-S> :w<CR>
 
 nnoremap <leader>y "+y
 nnoremap <leader>p "+p
+
+" open a terminal win
+nnoremap <silent> <leader>tt :!start cmder<CR>
 "=========================================================
 " < auto cmd set >
 
@@ -27,8 +30,8 @@ nnoremap <leader>p "+p
 " < Function >
 "=========================================================
 " < Abbreviate >
-
 abbreviate lsit list
+
 "=========================================================
 " Myself Set About My vimrc
 set guicursor+=a:blinkon0
