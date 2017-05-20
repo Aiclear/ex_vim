@@ -4,35 +4,53 @@
 "=========================================================
 "< key mapping >
 "=========================================================
-inoremap <c-k> <Up>
-inoremap <c-j> <Down>
-inoremap <c-h> <Left>
-inoremap <c-l> <Right>
+inoremap <C-K> <Up>
+inoremap <C-J> <Down>
+inoremap <C-H> <Left>
+inoremap <C-L> <Right>
 inoremap <C-U> <ESC>mzgUiw`za
 inoremap <C-K> <ESC>mzguiw`za
-nnoremap <leader>ev :vs /root/.vimrc.local<CR>
+nnoremap <leader>ev :vs $MYVIMRC.local<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
-nnoremap cS :%s/\ *$//g<CR>:noh<CR>
-inoremap <C-S> <ESC>:w<CR>i
+nnoremap cS :%s/\ *$//gg<CR>:noh<CR>
+inoremap <C-S> <C-O>:w<CR>
 nnoremap <C-S> :w<CR>
 
 nnoremap <leader>y "+y
 nnoremap <leader>p "+p
+" %< can get filename without extension
+nnoremap <LocalLeader>cc :call CompilerRoutine()<CR><CR>
+"&varname express a vim option(if has '&' the varname become a local option)
+function CompilerRoutine()
+    if &filetype == 'c'
+        exec "!gcc -g -Wall % -o %<"
+    elseif &filetype == 'cpp'
+        exec "!g++ -g -Wall % -o %<"
+    elseif &filetype == 'java'
+        exec "javac %"
+    endif
+endfunction
 
+"=========================================================
 " open a terminal win
-nnoremap <silent><leader>tt :!start cmder<CR>
-"=========================================================
-" < auto cmd set >
+nnoremap <silent><LocalLeader>tt :!start cmder<CR>
+" explore html file with Chrome
+nnoremap <silent><LocalLeader>ch :call GetOpenFile()<CR><CR>
 
-" au! ex_gui_font " remove exvim old font
-" set guifont=mononoki\ Regular\ 13 " seting new font
-"=========================================================
-" < Function >
+function GetOpenFile()
+    let l:path = getcwd()
+    let l:name = expand("%")
+    let l:PF = l:path . "\\" . l:name
+
+    execute "!" . "D:\\Short\\Chrome.lnk" . " " . l:PF
+endfunction
 "=========================================================
 " < Abbreviate >
-abbreviate lsit list
-
+inorea lsit list
+inorea true ture
+inorea flase false
 "=========================================================
 " Myself Set About My vimrc
+" set cursor blink
 set guicursor+=a:blinkon0
 "=========================================================
