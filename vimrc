@@ -277,11 +277,14 @@ if has('gui_running')
 endif
 
 set showfulltag " show tag with function protype.
-set guioptions+=b " present the bottom scrollbar when the longest visible line exceed the window
+" set guioptions+=b " present the bottom scrollbar when the longest visible line exceed the window
 
 " disable menu & toolbar
 set guioptions-=m
 set guioptions-=T
+set guioptions-=r
+set guioptions-=b
+set guioptions-=r
 
 " ------------------------------------------------------------------
 " Desc: Text edit
