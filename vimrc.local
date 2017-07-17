@@ -36,7 +36,13 @@ endfunction
 nnoremap <silent><LocalLeader>tt :!start cmder<CR>
 " explore html file with Chrome
 nnoremap <silent><LocalLeader>ch :call GetOpenFile()<CR><CR>
+" insert comment in code top
+nnoremap <silent><LocalLeader>ic :call AddCommentTitle()<CR>
+inoremap <silent><LocalLeader>ic :call AddCommentTitle()<CR>
+" when I save my file exec this command
+:autocmd BufWritePre *.[ch],*.cpp,*.py,*.sh,*.js,*.java exec ":call UpdateCommTime()"
 
+" PF mean is file path
 function GetOpenFile()
     let l:path = getcwd()
     let l:name = expand("%")
@@ -44,11 +50,49 @@ function GetOpenFile()
 
     execute "!" . "D:\\Short\\Chrome.lnk" . " " . l:PF
 endfunction
+
+" add comment in code top
+function AddCommentTitle()
+    if &filetype == 'c' || &filetype == 'cpp' || &filetype == 'js'
+        let l:commStart = "/*"
+        let l:commContent = " * "
+        let l:commEnd = " */"
+    elseif &filetype == 'sh'
+        let l:commStart = "#!/bin/bash"
+        let l:commContent = "# "
+        let l:commEnd = ""
+    endif
+    let l:comment = [[1, l:commContent . '@Author: xinzheYu'],
+                \ [2, l:commContent . '@Last Modified Time: ' . strftime("%Y-%m-%d %H:%M:%S")],
+                \ [3, l:commContent . '@Last Modified By: ' . 'xinzheYu'],
+                \ [4, l:commContent . '@Filename: ' . expand("%:t")],
+                \ [5, l:commEnd]]
+    let l:nowComm = getline(1)
+    if l:nowComm !=# l:commStart
+        call append(0, l:commStart)
+        for [n, l] in l:comment
+            call append(n, l)
+        endfor
+    endif
+endfunction
+
+" update comment time
+function UpdateCommTime()
+    let l:pos = getpos('.')
+    call cursor(3, 1)
+    let l:rval = search('\v^\ \*\ \@Last\ .*\ Time:')
+    if l:rval > 0
+        call cursor(3, 1)
+        call setline(".", " * @Last Modified Time: " . strftime("%Y-%m-%d %H:%M:%S"))
+    endif
+    call setpos(".", l:pos)
+endfunction
 "=========================================================
 " < Abbreviate >
 inorea lsit list
-inorea true ture
+inorea ture true
 inorea flase false
+inorea xxy xinzheyyu@gmail.com
 "=========================================================
 " Myself Set About My vimrc
 " set cursor blink
