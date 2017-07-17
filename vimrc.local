@@ -63,10 +63,11 @@ function AddCommentTitle()
         let l:commEnd = ""
     endif
     let l:comment = [[1, l:commContent . '@Author: xinzheYu'],
-                \ [2, l:commContent . '@Last Modified Time: ' . strftime("%Y-%m-%d %H:%M:%S")],
+                \ [2, l:commContent . '@Create Time: ' . strftime("%Y-%m-%d %H:%M:%S")],
                 \ [3, l:commContent . '@Last Modified By: ' . 'xinzheYu'],
-                \ [4, l:commContent . '@Filename: ' . expand("%:t")],
-                \ [5, l:commEnd]]
+                \ [4, l:commContent . '@Last Modified Time: ' . strftime("%Y-%m-%d %H:%M:%S")],
+                \ [5, l:commContent . '@Filename: ' . expand("%:t")],
+                \ [6, l:commEnd]]
     let l:nowComm = getline(1)
     if l:nowComm !=# l:commStart
         call append(0, l:commStart)
@@ -79,10 +80,10 @@ endfunction
 " update comment time
 function UpdateCommTime()
     let l:pos = getpos('.')
-    call cursor(3, 1)
+    call cursor(5, 1)
     let l:rval = search('\v^\ \*\ \@Last\ .*\ Time:')
     if l:rval > 0
-        call cursor(3, 1)
+        call cursor(5, 1)
         call setline(".", " * @Last Modified Time: " . strftime("%Y-%m-%d %H:%M:%S"))
     endif
     call setpos(".", l:pos)
