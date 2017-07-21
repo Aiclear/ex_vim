@@ -206,11 +206,9 @@ if has('gui_running')
 
     " set guifont
     function! s:set_gui_font()
-        if has('gui_gtk2') || has('gui')
-            if getfontname( 'Powerline_Consolas' ) != ''
-                set guifont=Powerline_Consolas:h13:cANSI
-                set guifontwide=YaHei_Consolas_Hybrid:h13
-            elseif getfontname( 'DejaVu Sans Mono for Powerline' ) != ''
+        " if has('gui_gtk2') || has('gui')
+        if LINUX()
+            if getfontname( 'DejaVu Sans Mono for Powerline' ) != ''
                 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h12:cANSI
             elseif getfontname( 'DejaVu Sans Mono' ) != ''
                 set guifont=DejaVu\ Sans\ Mono\ 12
