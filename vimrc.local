@@ -84,7 +84,7 @@ function UpdateCommTime()
     let l:rval = search('\v^\ \*\ \@Last\ .*\ Time:')
     if l:rval > 0
         call cursor(5, 1)
-        call setline(".", " * @Last Modified Time: " . strftime("%Y-%m-%d %H:%M:%S"))
+        exec 'undojoin | call setline(".", " * @Last Modified Time: " . strftime("%Y-%m-%d %H:%M:%S"))'
     endif
     call setpos(".", l:pos)
 endfunction
