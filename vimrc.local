@@ -19,7 +19,7 @@ nnoremap <C-S> :w<CR>
 nnoremap <leader>y "+y
 nnoremap <leader>p "+p
 " %< can get filename without extension
-nnoremap <LocalLeader>cc :call CompilerRoutine()<CR><CR>
+nnoremap <LocalLeader>cc :call CompilerRoutine()<CR>
 "&varname express a vim option(if has '&' the varname become a local option)
 function CompilerRoutine()
     if &filetype == 'c'
@@ -94,6 +94,20 @@ inorea lsit list
 inorea ture true
 inorea flase false
 inorea xxy xinzheyyu@gmail.com
+
+" for c some samrt function keyword
+inorea #i #include <><LEFT>
+inorea #d #define
+inorea cmain int main(void)
+inorea cmic int main(int argc, char* argv[])
+" for c head file
+inorea stdioh #include <stdio.h>
+inorea stdlibh #include <stdlib.h>
+inorea unistdh #include <unistd.h>
+inorea stringh #include <string.h>
+inorea signalh #include <signal.h>
+inorea errnoh #include <errno.h>
+inorea ctypeh #include <ctype.h>
 "=========================================================
 " Myself Set About My vimrc
 " set cursor blink
