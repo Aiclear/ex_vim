@@ -209,7 +209,8 @@ if has('gui_running')
         " if has('gui_gtk2') || has('gui')
         if LINUX()
             if getfontname( 'DejaVu Sans Mono for Powerline' ) != ''
-                set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 13
+                " set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 13
+                set guifont=mononoki\ 13
             elseif getfontname( 'DejaVu Sans Mono' ) != ''
                 set guifont=DejaVu\ Sans\ Mono\ 12
             else

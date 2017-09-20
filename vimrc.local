@@ -112,4 +112,5 @@ inorea ctypeh #include <ctype.h>
 " Myself Set About My vimrc
 " set cursor blink
 set guicursor+=a:blinkon0
+" set guifont=mononoki\ 13
 "=========================================================
