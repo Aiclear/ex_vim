@@ -1,14 +1,18 @@
-#!/bin/bash
+# !/bin/bash
+
+# 首先获取当前目录的变量
+vimrc_dir=$(pwd)
+
 
 #配置为我自己的.vimrc文件
 setVim() {
     cd $HOME
     rm -rf .vimrc*
 
-    ln -s $HOME/vimrc/ex_vim/vimrc                 $HOME/.vimrc
-    ln -s $HOME/vimrc/ex_vim/vimrc.local           $HOME/.vimrc.local
-    ln -s $HOME/vimrc/ex_vim/vimrc.plugins         $HOME/.vimrc.plugins
-    ln -s $HOME/vimrc/ex_vim/vimrc.plugins.local   $HOME/.vimrc.plugins.local
+    ln -s $1/vimrc                 $HOME/.vimrc
+    ln -s $1/vimrc.local           $HOME/.vimrc.local
+    ln -s $1/vimrc.plugins         $HOME/.vimrc.plugins
+    ln -s $1/vimrc.plugins.local   $HOME/.vimrc.plugins.local
 }
 
 read -p "Do you want to install a new vim[y|n]" answ
@@ -26,9 +30,9 @@ if [ x"$answ" = x"y" ]; then
     sh unix/install.sh
     sh unix/replace.sh
 
-    setVim
+    setVim $vimrc_dir
 else
-    setVim
+    setVim $vimrc_dir
 fi
 
 # The "mkid" command checked
