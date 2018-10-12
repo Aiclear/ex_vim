@@ -35,6 +35,16 @@ else
     setVim $vimrc_dir
 fi
 
+read -p "Do you want to install mkid[y|n]" answ
+while [ x"$answ" != x"n" && x"$answ" != x"y" ]; do
+    read -p "Do you want to install mkid[y|n]" answ
+    if [ x"$answ" = x"n" ]; then
+        exit 0
+    elif [ x"$answ" = x"y" ]; then
+        break
+    fi
+done
+
 # The "mkid" command checked
 which mkid 1> /dev/null 2>&1
 
